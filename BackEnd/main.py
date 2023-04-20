@@ -9,7 +9,7 @@ import uvicorn
 from boto3.session import Session
 
 # UTILS
-from utils import run_in_thread
+from second_util_v import run_in_thread
 
 app = FastAPI(
     title="AWS App"
@@ -30,7 +30,7 @@ app.add_middleware(
 
 @app.post('/upload')
 async def upload_file(file: UploadFile = File(...)):
-    result: dict = run_in_thread(aws_mag_con, file)
+    result: dict  = run_in_thread(aws_mag_con, file)
     return result
 
 if __name__ == '__main__':
