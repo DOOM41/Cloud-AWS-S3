@@ -58,7 +58,7 @@ def run_in_thread(aws_mag_con: Session, file: UploadFile) -> dict:
     # Upload file
     upload_id: str = response['UploadId']
     file_size: int = file.size
-    part_size: int = 50 * 1024**2
+    part_size: int = 100 * 1024**2
     s3_data: S3Manager = S3Manager(s3, upload_id, file)
     num_parts: int = (file_size + part_size - 1) // part_size
     
