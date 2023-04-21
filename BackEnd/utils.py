@@ -1,7 +1,6 @@
-from fastapi import File, UploadFile
+from fastapi import UploadFile
 
 from boto3.session import Session
-from boto3 import s3
 from boto3.s3.transfer import TransferConfig
 from botocore.client import Config
 
@@ -12,8 +11,7 @@ def run_in_thread(aws_mag_con: Session, file: UploadFile) -> dict:
     """
         Multipart uploading file in AWS S3
     """
-    # max size of file 500 MB
-    MB: int = 1024 * 1024
+    MB: int = 1024**2
     s3: Config = aws_mag_con.client('s3')
     config: TransferConfig = TransferConfig(
         multipart_threshold=100*MB,

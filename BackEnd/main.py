@@ -9,7 +9,7 @@ import uvicorn
 from boto3.session import Session
 
 # UTILS
-from second_util_v import run_in_thread
+from utils import run_in_thread
 
 app = FastAPI(
     title="AWS App"
