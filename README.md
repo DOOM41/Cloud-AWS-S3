@@ -1,10 +1,10 @@
-BACKEND: 
-    - [x] [FASTAPI](https://fastapi.tiangolo.com/)
-    ENDPONTS:
-        - [POST] /upload - form-data
+BACKEND: <br>
+    - [x] [FASTAPI](https://fastapi.tiangolo.com/)<br>
+    ENDPONTS:<br>
+        - [POST] /upload - form-data<br>
 
-FRONTEND:
-    HTML/CSS/JS 
+FRONTEND:<br>
+    HTML/CSS/JS <br>
 
 
 P.S. Сделал две вариации отправки файла на AWS S3, одна через встроенный метод библиотеки boto3 в файле utils.py, 
