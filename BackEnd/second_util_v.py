@@ -31,6 +31,7 @@ def upload_part(part_info):
     
     # Upload part
     s3_manager.file.file.seek(start)
+    
     data = s3_manager.file.file.read(end - start + 1)
     response = s3_manager.s3.upload_part(
         Bucket=bucket_name,
