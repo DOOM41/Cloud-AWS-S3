@@ -33,7 +33,7 @@ class UploadManager():
             Key=file_key,
             PartNumber=chunk_index,
             UploadId=upload_id,
-            Body= file_part.file.read()
+            Body=file_part.file.read()
         )
         part: Part = Part(chunk_index, response['ETag'], upload_id)
         self.add_part(file_key, part)
