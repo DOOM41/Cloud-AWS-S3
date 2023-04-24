@@ -28,11 +28,11 @@ async function sendChunk(file, chunk, chunkIndex, totalChunks) {
 }
 
 function sliceFile(file, chunksAmount) {
-    var byteIndex = 0;
-    var chunks = [];
+    let byteIndex = 0;
+    const chunks = [];
 
-    for (var i = 0; i < chunksAmount; i += 1) {
-        var byteEnd = Math.ceil((file.size / chunksAmount) * (i + 1));
+    for (let i = 0; i < chunksAmount; i += 1) {
+        let byteEnd = Math.ceil((file.size / chunksAmount) * (i + 1));
         chunks.push(file.slice(byteIndex, byteEnd));
         byteIndex += (byteEnd - byteIndex);
     }
@@ -43,7 +43,7 @@ function sliceFile(file, chunksAmount) {
 async function uploadFileChunks(file) {
     let parts = file.size / (100 * Math.pow(1024, 2));
     parts = Math.ceil(parts);
-    if (parts <= 1){
+    if (parts <= 2){
         parts = 4;
     }
     const chunks = sliceFile(file, parts);
